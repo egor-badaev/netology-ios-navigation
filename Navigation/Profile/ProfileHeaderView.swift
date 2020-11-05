@@ -13,8 +13,11 @@ class ProfileHeaderView: UIView {
     // MARK: - Constants
 
     private let margin: CGFloat = 16.0
+    private let largeMargin: CGFloat = 27.0
     private let radius: CGFloat = 4.0
     private let avatarSize: CGFloat = 110.0
+    private let textFieldHeight: CGFloat = 40.0
+    private let defaultStatusText = "Waiting for something..."
 
     // MARK: - Setup UI
 
@@ -41,10 +44,10 @@ class ProfileHeaderView: UIView {
         return label
     }()
 
-    private let statusLabel: UILabel = {
+    private lazy var statusLabel: UILabel = {
         let label = UILabel()
 
-        label.text = "Waiting for something..."
+        label.text = defaultStatusText
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textColor = .gray
         label.sizeToFit()
@@ -58,7 +61,7 @@ class ProfileHeaderView: UIView {
 
         button.backgroundColor = .blue
         button.setTitleColor(.white, for: .normal)
-        button.setTitle("Show status", for: .normal)
+        button.setTitle("Set status", for: .normal)
         button.clipsToBounds = true
         button.layer.masksToBounds = false
         button.layer.cornerRadius = radius
@@ -71,6 +74,34 @@ class ProfileHeaderView: UIView {
         return button
     }()
 
+    private lazy var statusTextField: StatusTextField = {
+        let textField = StatusTextField()
+
+        textField.textColor = .black
+        textField.font = UIFont.systemFont(ofSize: 15.0)
+        textField.layer.masksToBounds = true
+        textField.layer.addSublayer(statusTextFieldBackgroundLayer)
+
+        textField.addTarget(self, action: #selector(statusTextFieldChanged), for: .editingChanged)
+
+        return textField
+    }()
+
+    private let statusTextFieldBackgroundLayer: CALayer = {
+        let borderLayer = CALayer()
+
+        borderLayer.borderColor = UIColor.black.cgColor
+        borderLayer.borderWidth = 1.0
+        borderLayer.cornerRadius = 12.0
+        borderLayer.backgroundColor = UIColor.white.cgColor
+
+        return borderLayer
+    }()
+
+    private lazy var statusText: String = defaultStatusText
+
+    // MARK: - Init UI
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -79,6 +110,7 @@ class ProfileHeaderView: UIView {
         addSubview(avatarImageView)
         addSubview(titleLabel)
         addSubview(statusLabel)
+        addSubview(statusTextField)
         addSubview(statusButton)
     }
 
@@ -114,14 +146,29 @@ class ProfileHeaderView: UIView {
 
         statusButton.frame = CGRect(
             x: superview.safeAreaInsets.left + margin,
-            y: avatarImageView.frame.maxY + margin,
+            y: avatarImageView.frame.maxY + margin + 27.0,
             width: bounds.width - margin * 2 - superview.safeAreaInsets.left - superview.safeAreaInsets.right,
             height: 50
         )
 
+        statusTextField.frame = CGRect(
+            x: titleLabel.frame.minX,
+            y: statusButton.frame.minY - margin - textFieldHeight,
+            width: titleLabel.frame.width,
+            height: textFieldHeight
+        )
+
+        statusTextFieldBackgroundLayer.frame = CGRect(
+            x: 0,
+            y: 0,
+            width: statusTextField.frame.width,
+            height: textFieldHeight
+        )
+
+
         statusLabel.frame = CGRect(
             x: titleLabel.frame.minX,
-            y: statusButton.frame.minY - 34.0 - statusLabel.bounds.height,
+            y: statusTextField.frame.minY - 6.0 - statusLabel.bounds.height,
             width: titleLabel.frame.width,
             height: statusLabel.bounds.height
         )
@@ -130,11 +177,18 @@ class ProfileHeaderView: UIView {
     // MARK: - Actions
 
     @objc private func statusButtonTapped() {
-        guard let statusText = statusLabel.text else {
-            print("No status has been set!")
+        statusLabel.text = statusText
+
+        // Очистить текстовое поле после установки статуса
+        statusTextField.text = ""
+    }
+
+    @objc private func statusTextFieldChanged(_ textField: UITextField) {
+        guard let statusText = textField.text else {
+            print("No status has been entered!")
             return
         }
-        print("Status: \(statusText)")
+        self.statusText = statusText
     }
 
 }
