@@ -59,7 +59,7 @@ class ProfileHeaderView: UIView {
     private lazy var statusButton: UIButton = {
         let button = UIButton()
 
-        button.backgroundColor = .blue
+        button.backgroundColor = .systemBlue
         button.setTitleColor(.white, for: .normal)
         button.setTitle("Set status", for: .normal)
         button.clipsToBounds = true
