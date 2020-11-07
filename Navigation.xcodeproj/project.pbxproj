@@ -19,6 +19,7 @@
 		742C785B2554618200B352FF /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C785A2554618200B352FF /* ProfileHeaderView.swift */; };
 		742C785F255461C500B352FF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C785E255461C500B352FF /* ProfileViewController.swift */; };
 		742C7869255496BD00B352FF /* StatusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C7868255496BD00B352FF /* StatusTextField.swift */; };
+		743F39E725573DD500F77FE2 /* PostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743F39E625573DD500F77FE2 /* PostButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		742C785A2554618200B352FF /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		742C785E255461C500B352FF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		742C7868255496BD00B352FF /* StatusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTextField.swift; sourceTree = "<group>"; };
+		743F39E625573DD500F77FE2 /* PostButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,14 +73,11 @@
 				742C78592554614F00B352FF /* Profile */,
 				060782B1250CE27700A87020 /* AppDelegate.swift */,
 				060782B3250CE27700A87020 /* SceneDelegate.swift */,
-				060782B5250CE27700A87020 /* FeedViewController.swift */,
+				743F39E325573D8600F77FE2 /* Feed */,
 				060782B7250CE27700A87020 /* Main.storyboard */,
 				060782BA250CE27A00A87020 /* Assets.xcassets */,
 				060782BC250CE27A00A87020 /* LaunchScreen.storyboard */,
 				060782BF250CE27A00A87020 /* Info.plist */,
-				060782C5250CEB0A00A87020 /* InfoViewController.swift */,
-				060782C7250CEE5D00A87020 /* PostViewController.swift */,
-				060782C9250CEE7200A87020 /* Post.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -91,6 +90,18 @@
 				742C7868255496BD00B352FF /* StatusTextField.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		743F39E325573D8600F77FE2 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				060782B5250CE27700A87020 /* FeedViewController.swift */,
+				060782C5250CEB0A00A87020 /* InfoViewController.swift */,
+				060782C7250CEE5D00A87020 /* PostViewController.swift */,
+				060782C9250CEE7200A87020 /* Post.swift */,
+				743F39E625573DD500F77FE2 /* PostButton.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 				742C7869255496BD00B352FF /* StatusTextField.swift in Sources */,
 				060782B6250CE27700A87020 /* FeedViewController.swift in Sources */,
 				060782B2250CE27700A87020 /* AppDelegate.swift in Sources */,
+				743F39E725573DD500F77FE2 /* PostButton.swift in Sources */,
 				060782C6250CEB0A00A87020 /* InfoViewController.swift in Sources */,
 				060782CA250CEE7200A87020 /* Post.swift in Sources */,
 				742C785B2554618200B352FF /* ProfileHeaderView.swift in Sources */,

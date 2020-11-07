@@ -130,32 +130,19 @@
                     <view key="view" contentMode="scaleToFill" id="hnQ-fB-PJI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ru-89-vrk">
-                                <rect key="frame" x="171" y="433" width="72" height="30"/>
-                                <state key="normal" title="Open post"/>
-                                <connections>
-                                    <segue destination="Gpo-I4-SnC" kind="show" identifier="post" id="2l2-zd-PhO"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="rDk-lR-Mb7"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
-                        <constraints>
-                            <constraint firstItem="9ru-89-vrk" firstAttribute="centerX" secondItem="hnQ-fB-PJI" secondAttribute="centerX" id="ojZ-LA-9mf"/>
-                            <constraint firstItem="9ru-89-vrk" firstAttribute="centerY" secondItem="hnQ-fB-PJI" secondAttribute="centerY" id="z24-rS-igo"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="CTA-33-ygc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zo3-uO-y7P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="743" y="-541"/>
+            <point key="canvasLocation" x="742.02898550724649" y="-541.07142857142856"/>
         </scene>
         <!--Post-->
         <scene sceneID="9oM-mS-hYy">
             <objects>
-                <viewController id="Gpo-I4-SnC" customClass="PostViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gpo-I4-SnC" customClass="PostViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NJr-hs-eEz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
