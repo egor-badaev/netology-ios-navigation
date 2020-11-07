@@ -10,22 +10,42 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-    private let headerView = ProfileHeaderView()
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
-        view.addSubview(headerView)
+
+        setupBottomButton()
     }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    // MARK: - Private methods
 
-        headerView.frame = CGRect(
-            x: 0,
-            y: 0,
-            width: view.bounds.width,
-            height: view.bounds.height
-        )
+    private func setupBottomButton() {
+
+        // Добавить кнопку
+        let bottomButton = UIButton()
+        view.addSubview(bottomButton)
+
+        // Быстрая настройка внешнего вида
+        bottomButton.backgroundColor = .black
+        bottomButton.setTitleColor(.white, for: .normal)
+        bottomButton.setTitle("Tap me!", for: .normal)
+
+        // Настройки из задания
+        bottomButton.translatesAutoresizingMaskIntoConstraints = false
+        bottomButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        bottomButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        bottomButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+
+        // Сделать кнопку чуть-чуть побольше для красоты
+        let bottomButtonHeightConstraint = NSLayoutConstraint(item: bottomButton,
+                                                  attribute: .height,
+                                                  relatedBy: .equal,
+                                                  toItem: nil,
+                                                  attribute: .notAnAttribute,
+                                                  multiplier: 1,
+                                                  constant: 50)
+        bottomButtonHeightConstraint.isActive = true
+        bottomButton.addConstraint(bottomButtonHeightConstraint)
     }
 }

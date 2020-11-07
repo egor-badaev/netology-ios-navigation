@@ -16,8 +16,89 @@
                     <view key="view" contentMode="scaleToFill" id="z6I-Co-0n3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKw-Bh-Asa" customClass="ProfileHeaderView" customModule="Navigation" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="220"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="aDU-Ep-zxj">
+                                        <rect key="frame" x="16" y="16" width="110" height="110"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="110" id="5ce-p1-eGK"/>
+                                            <constraint firstAttribute="height" constant="110" id="Jln-jk-D38"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Appleseed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhU-ma-VqQ">
+                                        <rect key="frame" x="142" y="27" width="256" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvl-LA-ROR">
+                                        <rect key="frame" x="16" y="169" width="382" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Oih-8N-YFi"/>
+                                        </constraints>
+                                        <state key="normal" title="Set status">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="statusButtonTapped:" destination="EKw-Bh-Asa" eventType="touchUpInside" id="jJL-3J-Kpk"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XGx-fy-JNJ" customClass="StatusTextField" customModule="Navigation" customModuleProvider="target">
+                                        <rect key="frame" x="142" y="113" width="256" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="4Fk-qa-8R1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="statusTextFieldChanged:" destination="EKw-Bh-Asa" eventType="editingChanged" id="NTk-4D-bf3"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for something..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKh-nF-E1y">
+                                        <rect key="frame" x="142" y="90" width="256" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="bhU-ma-VqQ" firstAttribute="leading" secondItem="aDU-Ep-zxj" secondAttribute="trailing" constant="16" id="4pu-3L-89w"/>
+                                    <constraint firstItem="Vvl-LA-ROR" firstAttribute="top" secondItem="aDU-Ep-zxj" secondAttribute="bottom" constant="43" id="HVd-kh-vv7"/>
+                                    <constraint firstItem="aDU-Ep-zxj" firstAttribute="leading" secondItem="EKw-Bh-Asa" secondAttribute="leading" constant="16" id="LOe-bg-Jne"/>
+                                    <constraint firstItem="bhU-ma-VqQ" firstAttribute="top" secondItem="EKw-Bh-Asa" secondAttribute="top" constant="27" id="OVI-Ue-Niu"/>
+                                    <constraint firstAttribute="trailing" secondItem="bhU-ma-VqQ" secondAttribute="trailing" constant="16" id="QLy-74-Wiu"/>
+                                    <constraint firstItem="XGx-fy-JNJ" firstAttribute="leading" secondItem="aDU-Ep-zxj" secondAttribute="trailing" constant="16" id="YA9-zM-EHr"/>
+                                    <constraint firstAttribute="trailing" secondItem="XGx-fy-JNJ" secondAttribute="trailing" constant="16" id="Yq6-ac-u4P"/>
+                                    <constraint firstAttribute="height" constant="220" id="ZZt-qS-THh"/>
+                                    <constraint firstItem="Vvl-LA-ROR" firstAttribute="leading" secondItem="EKw-Bh-Asa" secondAttribute="leading" constant="16" id="bmj-tG-JHx"/>
+                                    <constraint firstItem="aDU-Ep-zxj" firstAttribute="top" secondItem="EKw-Bh-Asa" secondAttribute="top" constant="16" id="dV7-dJ-gkK"/>
+                                    <constraint firstAttribute="trailing" secondItem="fKh-nF-E1y" secondAttribute="trailing" constant="16" id="drc-2z-OsY"/>
+                                    <constraint firstItem="fKh-nF-E1y" firstAttribute="leading" secondItem="aDU-Ep-zxj" secondAttribute="trailing" constant="16" id="rwx-qs-apN"/>
+                                    <constraint firstItem="Vvl-LA-ROR" firstAttribute="top" secondItem="XGx-fy-JNJ" secondAttribute="bottom" constant="16" id="ssL-Z7-GbD"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vvl-LA-ROR" secondAttribute="trailing" constant="16" id="vWm-s1-Udq"/>
+                                    <constraint firstItem="XGx-fy-JNJ" firstAttribute="top" secondItem="fKh-nF-E1y" secondAttribute="bottom" constant="6" id="xap-Uh-dg5"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="avatarImageView" destination="aDU-Ep-zxj" id="qUi-BE-5c4"/>
+                                    <outlet property="statusButton" destination="Vvl-LA-ROR" id="V2v-nk-iry"/>
+                                    <outlet property="statusLabel" destination="fKh-nF-E1y" id="RmV-cf-4qh"/>
+                                    <outlet property="statusTextField" destination="XGx-fy-JNJ" id="ELn-vs-OAi"/>
+                                    <outlet property="titleLabel" destination="bhU-ma-VqQ" id="Uok-8R-yqh"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="FCL-IZ-fe8"/>
-                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EKw-Bh-Asa" firstAttribute="trailing" secondItem="FCL-IZ-fe8" secondAttribute="trailing" id="5WG-VU-oSO"/>
+                            <constraint firstItem="EKw-Bh-Asa" firstAttribute="leading" secondItem="FCL-IZ-fe8" secondAttribute="leading" id="DZc-wn-X8C"/>
+                            <constraint firstItem="EKw-Bh-Asa" firstAttribute="top" secondItem="FCL-IZ-fe8" secondAttribute="top" id="ED6-Sw-7rw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="TPi-FS-zh0"/>
                 </viewController>
@@ -162,14 +243,18 @@
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="profilePhoto" width="1024" height="1024"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
