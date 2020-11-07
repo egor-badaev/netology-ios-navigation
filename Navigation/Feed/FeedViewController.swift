@@ -52,7 +52,7 @@ final class FeedViewController: UIViewController {
     // MARK: - Private methods
 
     private func buttonForPost(index: Int) -> PostButton {
-        let button = PostButton()
+        let button = PostButton(type: .system)
 
         button.setTitle("Show post \(index + 1)", for: .normal)
         button.sizeToFit()

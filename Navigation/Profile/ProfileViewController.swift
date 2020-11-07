@@ -23,7 +23,7 @@ class ProfileViewController: UIViewController {
     private func setupBottomButton() {
 
         // Добавить кнопку
-        let bottomButton = UIButton()
+        let bottomButton = UIButton(type: .system)
         view.addSubview(bottomButton)
 
         // Быстрая настройка внешнего вида
