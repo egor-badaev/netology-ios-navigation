@@ -58,7 +58,7 @@ final class FeedViewController: UIViewController {
         button.sizeToFit()
         button.addTarget(self, action: #selector(buttonTapped(sender:)), for: .touchUpInside)
 
-        button.post = posts[index]
+        button.index = index
 
         return button
     }
@@ -75,11 +75,12 @@ final class FeedViewController: UIViewController {
         }
 
         guard let postButton = sender as? PostButton,
-              let post = postButton.post else {
+              let index = postButton.index,
+              posts.indices.contains(index) else {
             return
         }
 
-        postViewController.post = post
+        postViewController.post = posts[index]
 
         navigationController.pushViewController(postViewController, animated: true)
     }

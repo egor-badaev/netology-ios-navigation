@@ -10,6 +10,6 @@ import UIKit
 
 class PostButton: UIButton {
 
-    var post: Post? = nil
+    var index: Int? = nil
 
 }
