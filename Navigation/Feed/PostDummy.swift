@@ -1,12 +1,11 @@
 //
-//  Post.swift
+//  PostDummy.swift
 //  Navigation
 //
-//  Created by Artem Novichkov on 12.09.2020.
+//  Created by Egor Badaev on 17.11.2020.
 //  Copyright © 2020 Artem Novichkov. All rights reserved.
 //
 
-struct Post {
-    
+struct PostDummy {
     let title: String
 }

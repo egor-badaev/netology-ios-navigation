@@ -9,43 +9,89 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    //MARK: - Properties
+    
+    private lazy var postsTableView: UITableView = {
+        let tableView = UITableView()
+        
+        tableView.toAutoLayout()
+        
+        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.reuseIdentifier)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        return tableView
+    }()
+    
+    private let headerView: UIView = {
+        guard let profileNib = Bundle.main.loadNibNamed(String(describing: ProfileHeaderView.self), owner: nil, options: nil),
+              let profileHeaderView = profileNib.first as? ProfileHeaderView else {
+            return UIView()
+        }
+        
+        return profileHeaderView
+
+    }()
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupBottomButton()
+        
+        setupUI()
     }
 
     // MARK: - Private methods
 
-    private func setupBottomButton() {
+    private func setupUI() {
+        view.addSubview(postsTableView)
+        
+        let constraints = [
+            postsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            postsTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            postsTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            postsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
+    }
+    
+}
 
-        // Добавить кнопку
-        let bottomButton = UIButton(type: .system)
-        view.addSubview(bottomButton)
+extension ProfileViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard section == 0 else { return .zero }
+        return Post.samplePosts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard indexPath.section == 0,
+              let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.reuseIdentifier, for: indexPath) as? PostTableViewCell else {
+            return UITableViewCell()
+        }
 
-        // Быстрая настройка внешнего вида
-        bottomButton.backgroundColor = .black
-        bottomButton.setTitleColor(.white, for: .normal)
-        bottomButton.setTitle("Tap me!", for: .normal)
+        cell.configure(with: Post.samplePosts[indexPath.row])
+        return cell
+    }
 
-        // Настройки из задания
-        bottomButton.translatesAutoresizingMaskIntoConstraints = false
-        bottomButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        bottomButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        bottomButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+}
 
-        // Сделать кнопку чуть-чуть побольше для красоты
-        let bottomButtonHeightConstraint = NSLayoutConstraint(item: bottomButton,
-                                                  attribute: .height,
-                                                  relatedBy: .equal,
-                                                  toItem: nil,
-                                                  attribute: .notAnAttribute,
-                                                  multiplier: 1,
-                                                  constant: 50)
-        bottomButtonHeightConstraint.isActive = true
-        bottomButton.addConstraint(bottomButtonHeightConstraint)
+extension ProfileViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard section == 0 else { return nil }
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard section == 0 else { return .zero }
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard indexPath.section == 0 else { return .zero }
+        return UITableView.automaticDimension
     }
 }

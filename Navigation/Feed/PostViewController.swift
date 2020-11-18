@@ -10,7 +10,7 @@ import UIKit
 
 class PostViewController: UIViewController {
     
-    var post: Post?
+    var post: PostDummy?
 
     override func viewDidLoad() {
         super.viewDidLoad()

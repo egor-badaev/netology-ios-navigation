@@ -13,7 +13,6 @@ class LogInViewController: UIViewController {
     // MARK: - Constants
     
     private enum Constants {
-        static let margin: CGFloat = 16.0
         static let logoSize: CGFloat = 100.0
         static let logoMargin: CGFloat = 120.0
         static let fieldHeight: CGFloat = 50.0
@@ -194,14 +193,14 @@ class LogInViewController: UIViewController {
             logoImageView.heightAnchor.constraint(equalToConstant: Constants.logoSize),
             
             inputStackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: Constants.logoMargin),
-            inputStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.margin),
-            inputStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.margin),
+            inputStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: AppConstants.margin),
+            inputStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -AppConstants.margin),
             emailTextField.heightAnchor.constraint(equalToConstant: Constants.fieldHeight),
             passwordTextField.heightAnchor.constraint(equalToConstant: Constants.fieldHeight),
             
-            loginButton.topAnchor.constraint(equalTo: inputStackView.bottomAnchor, constant: Constants.margin),
-            loginButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.margin),
-            loginButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.margin),
+            loginButton.topAnchor.constraint(equalTo: inputStackView.bottomAnchor, constant: AppConstants.margin),
+            loginButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: AppConstants.margin),
+            loginButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -AppConstants.margin),
             loginButton.heightAnchor.constraint(equalToConstant: Constants.fieldHeight),
             loginButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ]

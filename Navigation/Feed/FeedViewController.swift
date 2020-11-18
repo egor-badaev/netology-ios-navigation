@@ -12,8 +12,8 @@ final class FeedViewController: UIViewController {
 
     // MARK: - properties
     
-    private let posts: [Post] = {
-        var posts: [Post] = []
+    private let posts: [PostDummy] = {
+        var posts: [PostDummy] = []
 
         /**
          По условиям задачи добавить нужно всего две кнопки, но текущая модель
@@ -22,8 +22,8 @@ final class FeedViewController: UIViewController {
          Для этого нужно добавлять эелементы в массив `posts` - для каждого
          из них создастся кнопка с переходом на соответствующий пост
          */
-        posts.append(Post(title: "Пост 1"))
-        posts.append(Post(title: "Пост 2"))
+        posts.append(PostDummy(title: "Пост 1"))
+        posts.append(PostDummy(title: "Пост 2"))
 
         return posts
     }()

@@ -6,8 +6,9 @@
 //  Copyright © 2020 Artem Novichkov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum AppConstants {
     static let accentColor = "AccentColor"
+    static let margin: CGFloat = 16.0
 }
