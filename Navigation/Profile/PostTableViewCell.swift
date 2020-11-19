@@ -73,6 +73,8 @@ class PostTableViewCell: UITableViewCell {
     // MARK: - Custom methods
 
     private func setupUI() {
+        selectionStyle = .none
+        
         contentView.addSubview(authorLabel)
         contentView.addSubview(postImageView)
         contentView.addSubview(descriptionLabel)
