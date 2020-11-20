@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController {
         tableView.toAutoLayout()
         
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.reuseIdentifier)
+        tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: PhotosTableViewCell.reuseIdentifier)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -60,24 +61,49 @@ class ProfileViewController: UIViewController {
     
 }
 
+// MARK: - Table View Data Source
+
 extension ProfileViewController: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard section == 0 else { return .zero }
-        return Post.samplePosts.count
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return Post.samplePosts.count
+        default:
+            return .zero
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard indexPath.section == 0,
-              let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.reuseIdentifier, for: indexPath) as? PostTableViewCell else {
+        switch indexPath.section {
+        
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PhotosTableViewCell.reuseIdentifier, for: indexPath) as? PhotosTableViewCell else {
+                return UITableViewCell()
+            }
+            return cell
+            
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.reuseIdentifier, for: indexPath) as? PostTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.configure(with: Post.samplePosts[indexPath.row])
+            return cell
+
+        default:
             return UITableViewCell()
         }
-
-        cell.configure(with: Post.samplePosts[indexPath.row])
-        return cell
     }
 
 }
+
+// MARK: - Table View Delegate
 
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -91,7 +117,13 @@ extension ProfileViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard indexPath.section == 0 else { return .zero }
+        guard indexPath.section <= 1 else { return .zero }
         return UITableView.automaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section == 0 && indexPath.row == 0 else { return }
+        tableView.deselectRow(at: indexPath, animated: true)
+        navigationController?.pushViewController(PhotosViewController(), animated: true)
     }
 }
