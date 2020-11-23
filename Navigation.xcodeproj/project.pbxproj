@@ -31,7 +31,6 @@
 		74972DFA25651F2900B29277 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74972DF925651F2900B29277 /* PostTableViewCell.swift */; };
 		74972E012566DBD200B29277 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74972E002566DBD200B29277 /* PhotosTableViewCell.swift */; };
 		749F3E1B25646D2F0077BE98 /* PostDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749F3E1A25646D2F0077BE98 /* PostDummy.swift */; };
-		74D8F2DC256476D60060DA0B /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74D8F2DB256476D60060DA0B /* ProfileHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +60,6 @@
 		74972DF925651F2900B29277 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		74972E002566DBD200B29277 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		749F3E1A25646D2F0077BE98 /* PostDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDummy.swift; sourceTree = "<group>"; };
-		74D8F2DB256476D60060DA0B /* ProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,7 +239,6 @@
 				060782BE250CE27A00A87020 /* LaunchScreen.storyboard in Resources */,
 				060782BB250CE27A00A87020 /* Assets.xcassets in Resources */,
 				060782B9250CE27700A87020 /* Main.storyboard in Resources */,
-				74D8F2DC256476D60060DA0B /* ProfileHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

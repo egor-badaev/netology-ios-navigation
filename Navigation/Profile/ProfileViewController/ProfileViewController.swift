@@ -26,15 +26,7 @@ class ProfileViewController: UIViewController {
         return tableView
     }()
     
-    private let headerView: UIView = {
-        guard let profileNib = Bundle.main.loadNibNamed(String(describing: ProfileHeaderView.self), owner: nil, options: nil),
-              let profileHeaderView = profileNib.first as? ProfileHeaderView else {
-            return UIView()
-        }
-        
-        return profileHeaderView
-
-    }()
+    private let headerView = ProfileHeaderView()
 
     // MARK: - Lifecycle
 
