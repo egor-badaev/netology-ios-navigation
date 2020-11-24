@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    //MARK: - Properties
+    //MARK: - Subviews
     
     private lazy var postsTableView: UITableView = {
         let tableView = UITableView()
@@ -28,12 +28,74 @@ class ProfileViewController: UIViewController {
     
     private let headerView = ProfileHeaderView()
 
+    private lazy var tintView: UIView = {
+        let tintView = UIView()
+        tintView.backgroundColor = .black
+        tintView.layer.opacity = 0
+
+        return tintView
+    }()
+    
+    private lazy var closeView: UIButton = {
+        let closeView = UIButton()
+
+        closeView.frame.size.width = 28
+        closeView.frame.size.height = 28
+        closeView.setImage(#imageLiteral(resourceName: "close"), for: .normal)
+        closeView.setImage(#imageLiteral(resourceName: "close").alpha(0.7), for: .selected)
+        closeView.setImage(#imageLiteral(resourceName: "close").alpha(0.7), for: .highlighted)
+        closeView.setImage(#imageLiteral(resourceName: "close").alpha(0.7), for: .focused)
+
+        closeView.addTarget(self, action: #selector(closeTapped(_:)), for: .touchUpInside)
+        
+        return closeView
+    }()
+
+    // MARK: - Properties
+
+    private var zoomedSize: CGFloat {
+        min(view.bounds.height, view.bounds.width)
+    }
+    private var zoomedAbsoluteFrame: CGRect {
+        CGRect(
+            x: self.view.bounds.width / 2 - self.zoomedSize / 2,
+            y: self.view.bounds.height / 2 - self.zoomedSize / 2,
+            width: self.zoomedSize,
+            height: self.zoomedSize
+        )
+    }
+    private var isZoomed: Bool = false
+    private var originalAbsoluteFrame: CGRect {
+        let absoluteOriginX = postsTableView.frame.origin.x + headerView.frame.origin.x + headerView.avatarContainerView.frame.origin.x
+        let absoluteOriginY = postsTableView.frame.origin.y - postsTableView.contentOffset.y + headerView.frame.origin.y + headerView.avatarContainerView.frame.origin.y
+
+        return CGRect(x: absoluteOriginX, y: absoluteOriginY, width: headerView.avatarContainerView.bounds.width, height: headerView.avatarContainerView.bounds.height)
+
+    }
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        tintView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
+
+        closeView.frame = CGRect(
+            x: view.bounds.width - view.safeAreaInsets.right - AppConstants.margin - closeView.bounds.width,
+            y: view.safeAreaInsets.top + AppConstants.margin,
+            width: closeView.bounds.width,
+            height: closeView.bounds.height
+        )
+        
+        if isZoomed {
+            headerView.avatarImageView.frame = zoomedAbsoluteFrame
+        }
     }
 
     // MARK: - Private methods
@@ -49,6 +111,64 @@ class ProfileViewController: UIViewController {
         ]
         
         NSLayoutConstraint.activate(constraints)
+
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(avatarTapped(_:)))
+        headerView.avatarImageView.isUserInteractionEnabled = true
+        headerView.avatarImageView.addGestureRecognizer(tapGestureRecognizer)
+    }
+
+    @objc private func avatarTapped(_ sender: Any) {
+        
+        guard !isZoomed, let window = view.window else { return }
+        
+        window.addSubview(tintView)
+
+        NSLayoutConstraint.deactivate(headerView.avatarConstraints)
+        headerView.avatarImageView.removeFromSuperview()
+        headerView.avatarImageView.translatesAutoresizingMaskIntoConstraints = true
+        headerView.avatarImageView.frame = originalAbsoluteFrame
+        headerView.avatarImageView.isUserInteractionEnabled = false
+        window.addSubview(headerView.avatarImageView)
+        
+        closeView.layer.opacity = 0
+        window.addSubview(closeView)
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.headerView.avatarImageView.frame = self.zoomedAbsoluteFrame
+            self.headerView.avatarImageView.layer.cornerRadius = 0
+            self.tintView.layer.opacity = 0.5
+        }) { _ in
+            UIView.animate(withDuration: 0.3) {
+                self.closeView.layer.opacity = 1.0
+            } completion: { _ in
+                self.isZoomed = true
+            }
+        }
+    }
+    
+    @objc private func closeTapped(_ sender: Any) {
+
+        guard isZoomed else { return }
+        
+        UIView.animate(withDuration: 0.3) {
+            self.closeView.layer.opacity = 0
+        } completion: { _ in
+            UIView.animate(withDuration: 0.5) {
+                self.headerView.avatarImageView.frame = self.originalAbsoluteFrame
+                self.headerView.avatarImageView.layer.cornerRadius = self.originalAbsoluteFrame.width / 2
+                self.tintView.layer.opacity = 0
+            } completion: { _ in
+                self.headerView.avatarImageView.removeFromSuperview()
+                self.headerView.avatarImageView.toAutoLayout()
+                self.headerView.avatarImageView.isUserInteractionEnabled = true
+                self.headerView.avatarContainerView.addSubview(self.headerView.avatarImageView)
+                NSLayoutConstraint.activate(self.headerView.avatarConstraints)
+                
+                self.closeView.removeFromSuperview()
+                self.tintView.removeFromSuperview()
+                self.isZoomed = false
+            }
+        }
     }
     
 }

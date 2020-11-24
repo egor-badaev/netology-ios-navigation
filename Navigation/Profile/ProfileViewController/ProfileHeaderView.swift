@@ -23,7 +23,13 @@ class ProfileHeaderView: UIView {
 
     // MARK: - Setup UI
 
-    private lazy var avatarImageView: UIImageView = {
+    let avatarContainerView: UIView = {
+        let containerView = UIView()
+        containerView.toAutoLayout()
+        return containerView
+    }()
+
+    lazy var avatarImageView: UIImageView = {
         let avatarImageView = UIImageView()
 
         avatarImageView.toAutoLayout()
@@ -110,6 +116,8 @@ class ProfileHeaderView: UIView {
     
     private lazy var statusText: String = Config.defaultStatusText
 
+    var avatarConstraints: [NSLayoutConstraint] = []
+
     // MARK: - Life cycle
 
     required init?(coder: NSCoder) {
@@ -139,24 +147,25 @@ class ProfileHeaderView: UIView {
 
         backgroundColor = .lightGray
 
-        addSubview(avatarImageView)
+        addSubview(avatarContainerView)
+        avatarContainerView.addSubview(avatarImageView)
         addSubview(titleLabel)
         addSubview(statusLabel)
         addSubview(statusTextField)
         addSubview(statusButton)
 
         let constraints = [
-            avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: AppConstants.margin),
-            avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppConstants.margin),
-            avatarImageView.heightAnchor.constraint(equalToConstant: Config.avatarSize),
-            avatarImageView.widthAnchor.constraint(equalTo: avatarImageView.heightAnchor),
+            avatarContainerView.topAnchor.constraint(equalTo: topAnchor, constant: AppConstants.margin),
+            avatarContainerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppConstants.margin),
+            avatarContainerView.heightAnchor.constraint(equalToConstant: Config.avatarSize),
+            avatarContainerView.widthAnchor.constraint(equalTo: avatarContainerView.heightAnchor),
 
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: Config.largeMargin),
-            titleLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: AppConstants.margin),
+            titleLabel.leadingAnchor.constraint(equalTo: avatarContainerView.trailingAnchor, constant: AppConstants.margin),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppConstants.margin),
 
-            statusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 43.0),
-            statusButton.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
+            statusButton.topAnchor.constraint(equalTo: avatarContainerView.bottomAnchor, constant: 43.0),
+            statusButton.leadingAnchor.constraint(equalTo: avatarContainerView.leadingAnchor),
             statusButton.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             statusButton.heightAnchor.constraint(equalToConstant: Config.statusButtonHeight),
             statusButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -AppConstants.margin),
@@ -171,7 +180,15 @@ class ProfileHeaderView: UIView {
             statusLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor)
         ]
 
+        avatarConstraints = [
+            avatarImageView.topAnchor.constraint(equalTo: avatarContainerView.topAnchor),
+            avatarImageView.leadingAnchor.constraint(equalTo: avatarContainerView.leadingAnchor),
+            avatarImageView.trailingAnchor.constraint(equalTo: avatarContainerView.trailingAnchor),
+            avatarImageView.bottomAnchor.constraint(equalTo: avatarContainerView.bottomAnchor)
+        ]
+
         NSLayoutConstraint.activate(constraints)
+        NSLayoutConstraint.activate(avatarConstraints)
 
     }
 
