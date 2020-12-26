@@ -15,5 +15,19 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = post?.title
+        
+        setupUI()
+    }
+    
+    private func setupUI() {
+        view.backgroundColor = .systemPink
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped(_:)))
+    }
+    
+    @objc func addButtonTapped(_ sender: Any) {
+
+        let infoViewController = InfoViewController()
+        navigationController?.present(infoViewController, animated: true, completion: nil)
     }
 }

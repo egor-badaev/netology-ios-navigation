@@ -33,6 +33,8 @@ final class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .systemGreen
+        
         let stackView = UIStackView()
         view.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -65,14 +67,11 @@ final class FeedViewController: UIViewController {
 
     @objc private func buttonTapped(sender: Any) {
 
-        guard let navigationController = self.navigationController,
-              let storyboard = self.storyboard else {
+        guard let navigationController = self.navigationController else {
             return
         }
 
-        guard let postViewController = storyboard.instantiateViewController(withIdentifier: String(describing: PostViewController.self)) as? PostViewController else {
-            return
-        }
+        let postViewController = PostViewController()
 
         guard let postButton = sender as? PostButton,
               let index = postButton.index,

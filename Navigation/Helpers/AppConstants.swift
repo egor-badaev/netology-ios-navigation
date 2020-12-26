@@ -11,4 +11,5 @@ import UIKit
 enum AppConstants {
     static let accentColor = "AccentColor"
     static let margin: CGFloat = 16.0
+    static let mainStoryboard = "Main"
 }

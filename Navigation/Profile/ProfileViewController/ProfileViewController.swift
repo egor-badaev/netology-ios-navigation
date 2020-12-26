@@ -101,6 +101,14 @@ class ProfileViewController: UIViewController {
     // MARK: - Private methods
 
     private func setupUI() {
+        
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .systemBackground
+        } else {
+            // Fallback on earlier versions
+            view.backgroundColor = .white
+        }
+        
         view.addSubview(postsTableView)
         
         let constraints = [

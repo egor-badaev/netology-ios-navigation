@@ -154,11 +154,12 @@ class LogInViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func performLogin(_ sender: Any) {
-        guard let navigationController = self.navigationController,
-              let storyboard = self.storyboard,
-              let profileViewController = storyboard.instantiateViewController(withIdentifier: String(describing: ProfileViewController.self)) as? ProfileViewController else {
+        guard let navigationController = self.navigationController else {
             return
         }
+        
+        let profileViewController = ProfileViewController()
+        
         navigationController.pushViewController(profileViewController, animated: true)
     }
     
@@ -167,6 +168,13 @@ class LogInViewController: UIViewController {
     private func setupUI() {
         
         navigationController?.navigationBar.isHidden = true
+        
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .systemBackground
+        } else {
+            // Fallback on earlier versions
+            view.backgroundColor = .white
+        }
         
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
