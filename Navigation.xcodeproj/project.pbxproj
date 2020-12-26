@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		060782B2250CE27700A87020 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060782B1250CE27700A87020 /* AppDelegate.swift */; };
-		060782B4250CE27700A87020 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060782B3250CE27700A87020 /* SceneDelegate.swift */; };
 		060782B6250CE27700A87020 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060782B5250CE27700A87020 /* FeedViewController.swift */; };
 		060782B9250CE27700A87020 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060782B7250CE27700A87020 /* Main.storyboard */; };
 		060782BB250CE27A00A87020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 060782BA250CE27A00A87020 /* Assets.xcassets */; };
@@ -36,7 +35,6 @@
 /* Begin PBXFileReference section */
 		060782AE250CE27700A87020 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		060782B1250CE27700A87020 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		060782B3250CE27700A87020 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		060782B5250CE27700A87020 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		060782B8250CE27700A87020 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		060782BA250CE27A00A87020 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 			children = (
 				742C78592554614F00B352FF /* Profile */,
 				060782B1250CE27700A87020 /* AppDelegate.swift */,
-				060782B3250CE27700A87020 /* SceneDelegate.swift */,
 				74756D72256402D4001D5099 /* Helpers */,
 				743F39E325573D8600F77FE2 /* Feed */,
 				060782B7250CE27700A87020 /* Main.storyboard */,
@@ -143,7 +140,6 @@
 			children = (
 				742C785E255461C500B352FF /* ProfileViewController.swift */,
 				742C785A2554618200B352FF /* ProfileHeaderView.swift */,
-				74D8F2DB256476D60060DA0B /* ProfileHeaderView.xib */,
 				742C7868255496BD00B352FF /* StatusTextField.swift */,
 				74972E002566DBD200B29277 /* PhotosTableViewCell.swift */,
 				74972DF925651F2900B29277 /* PostTableViewCell.swift */,
@@ -264,7 +260,6 @@
 				060782CA250CEE7200A87020 /* Post.swift in Sources */,
 				742C785B2554618200B352FF /* ProfileHeaderView.swift in Sources */,
 				741EDFBB25670C5D00A13F46 /* PhotoGalleryData.swift in Sources */,
-				060782B4250CE27700A87020 /* SceneDelegate.swift in Sources */,
 				74756D6A2563DB87001D5099 /* AppConstants.swift in Sources */,
 				749F3E1B25646D2F0077BE98 /* PostDummy.swift in Sources */,
 				742C785F255461C500B352FF /* ProfileViewController.swift in Sources */,
@@ -418,6 +413,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79RZ866842;
 				INFOPLIST_FILE = Navigation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -436,6 +432,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79RZ866842;
 				INFOPLIST_FILE = Navigation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

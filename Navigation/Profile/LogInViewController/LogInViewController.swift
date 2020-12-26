@@ -156,7 +156,7 @@ class LogInViewController: UIViewController {
     @objc private func performLogin(_ sender: Any) {
         guard let navigationController = self.navigationController,
               let storyboard = self.storyboard,
-              let profileViewController = storyboard.instantiateViewController(identifier: String(describing: ProfileViewController.self)) as? ProfileViewController else {
+              let profileViewController = storyboard.instantiateViewController(withIdentifier: String(describing: ProfileViewController.self)) as? ProfileViewController else {
             return
         }
         navigationController.pushViewController(profileViewController, animated: true)
@@ -213,7 +213,12 @@ class LogInViewController: UIViewController {
 extension UITextField {
     func setupCommonProperties() {
         self.toAutoLayout()
-        self.backgroundColor = UIColor.systemGray6
+        if #available(iOS 13.0, *) {
+            self.backgroundColor = UIColor.systemGray6
+        } else {
+            // Fallback on earlier versions
+            self.backgroundColor = UIColor(red: 242.0 / 255.0, green: 242.0 / 255.0, blue: 247.0 / 255.0, alpha: 1.0)
+        }
         self.textColor = .black
         self.tintColor = UIColor(named: AppConstants.accentColor)
         self.autocapitalizationType = .none
