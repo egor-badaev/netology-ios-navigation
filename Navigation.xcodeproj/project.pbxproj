@@ -20,6 +20,7 @@
 		742C785B2554618200B352FF /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C785A2554618200B352FF /* ProfileHeaderView.swift */; };
 		742C785F255461C500B352FF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C785E255461C500B352FF /* ProfileViewController.swift */; };
 		742C7869255496BD00B352FF /* StatusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C7868255496BD00B352FF /* StatusTextField.swift */; };
+		742E1F5A259916E600C781D2 /* BackgroundTaskTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745FAD2B2599150B005DD7EC /* BackgroundTaskTimer.swift */; };
 		743F39E725573DD500F77FE2 /* PostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743F39E625573DD500F77FE2 /* PostButton.swift */; };
 		745FAD042597AC14005DD7EC /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745FAD032597AC14005DD7EC /* RootTabBarController.swift */; };
 		745FAD0A2597C485005DD7EC /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74972E002566DBD200B29277 /* PhotosTableViewCell.swift */; };
@@ -45,6 +46,7 @@
 		745FAD1E2597C485005DD7EC /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060782C7250CEE5D00A87020 /* PostViewController.swift */; };
 		745FAD212597C485005DD7EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060782BC250CE27A00A87020 /* LaunchScreen.storyboard */; };
 		745FAD222597C485005DD7EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 060782BA250CE27A00A87020 /* Assets.xcassets */; };
+		745FAD2C2599150B005DD7EC /* BackgroundTaskTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745FAD2B2599150B005DD7EC /* BackgroundTaskTimer.swift */; };
 		74756D5F2563C319001D5099 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74756D5E2563C319001D5099 /* LogInViewController.swift */; };
 		74756D632563D208001D5099 /* UIView+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74756D622563D208001D5099 /* UIView+Navigation.swift */; };
 		74756D6A2563DB87001D5099 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74756D692563DB87001D5099 /* AppConstants.swift */; };
@@ -75,6 +77,7 @@
 		745FAD032597AC14005DD7EC /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		745FAD262597C485005DD7EC /* Navigation copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Navigation copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		745FAD272597C485005DD7EC /* Navigation copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Navigation copy-Info.plist"; path = "/Users/egor/Desktop/Projects/ios/tutorials/netology-redmadrobot/module 05/Badaev-IOSINT2-HW1/Navigation copy-Info.plist"; sourceTree = "<absolute>"; };
+		745FAD2B2599150B005DD7EC /* BackgroundTaskTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundTaskTimer.swift; sourceTree = "<group>"; };
 		74756D5E2563C319001D5099 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		74756D622563D208001D5099 /* UIView+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Navigation.swift"; sourceTree = "<group>"; };
 		74756D692563DB87001D5099 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 		060782B0250CE27700A87020 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				745FAD2F25991519005DD7EC /* BackgroundTaskTimer */,
 				745FAD022597ABF4005DD7EC /* RootTabBarController */,
 				742C78592554614F00B352FF /* Profile */,
 				060782B1250CE27700A87020 /* AppDelegate.swift */,
@@ -165,6 +169,14 @@
 				745FAD032597AC14005DD7EC /* RootTabBarController.swift */,
 			);
 			path = RootTabBarController;
+			sourceTree = "<group>";
+		};
+		745FAD2F25991519005DD7EC /* BackgroundTaskTimer */ = {
+			isa = PBXGroup;
+			children = (
+				745FAD2B2599150B005DD7EC /* BackgroundTaskTimer.swift */,
+			);
+			path = BackgroundTaskTimer;
 			sourceTree = "<group>";
 		};
 		74756D72256402D4001D5099 /* Helpers */ = {
@@ -317,6 +329,7 @@
 				745FAD042597AC14005DD7EC /* RootTabBarController.swift in Sources */,
 				742C7869255496BD00B352FF /* StatusTextField.swift in Sources */,
 				060782B6250CE27700A87020 /* FeedViewController.swift in Sources */,
+				745FAD2C2599150B005DD7EC /* BackgroundTaskTimer.swift in Sources */,
 				74972DFA25651F2900B29277 /* PostTableViewCell.swift in Sources */,
 				74756D632563D208001D5099 /* UIView+Navigation.swift in Sources */,
 				74756D5F2563C319001D5099 /* LogInViewController.swift in Sources */,
@@ -345,6 +358,7 @@
 				745FAD0B2597C485005DD7EC /* RootTabBarController.swift in Sources */,
 				745FAD0C2597C485005DD7EC /* StatusTextField.swift in Sources */,
 				745FAD0D2597C485005DD7EC /* FeedViewController.swift in Sources */,
+				742E1F5A259916E600C781D2 /* BackgroundTaskTimer.swift in Sources */,
 				745FAD0E2597C485005DD7EC /* PostTableViewCell.swift in Sources */,
 				745FAD0F2597C485005DD7EC /* UIView+Navigation.swift in Sources */,
 				745FAD102597C485005DD7EC /* LogInViewController.swift in Sources */,
