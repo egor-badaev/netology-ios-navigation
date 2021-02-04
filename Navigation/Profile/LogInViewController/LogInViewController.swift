@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate: AnyObject {
+    func loginController(_ loginController: LogInViewController, didSubmitLogin login: String)
+    func loginController(_ loginController: LogInViewController, didSubmitPassword password: String)
+    func loginControllerShouldAllowLogin(_ loginController: LogInViewController) -> Bool
+}
+
 class LogInViewController: UIViewController {
     
     // MARK: - Constants
@@ -54,6 +60,8 @@ class LogInViewController: UIViewController {
         emailTextField.setupCommonProperties()
         emailTextField.placeholder = "Email or phone"
                 
+        emailTextField.addTarget(self, action: #selector(loginFieldDidFinishEditing(_:)), for: .editingChanged)
+        
         return emailTextField
     }()
     
@@ -63,6 +71,8 @@ class LogInViewController: UIViewController {
         passwordTextField.setupCommonProperties()
         passwordTextField.placeholder = "Password"
         passwordTextField.isSecureTextEntry = true
+        
+        passwordTextField.addTarget(self, action: #selector(passwordFieldDidFinishEditing(_:)), for: .editingChanged)
         
         return passwordTextField
     }()
@@ -108,10 +118,12 @@ class LogInViewController: UIViewController {
         loginButton.layer.masksToBounds = true
         loginButton.layer.cornerRadius = Constants.cornerRadius
         
-        loginButton.addTarget(self, action: #selector(performLogin(_:)), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
 
         return loginButton
     }()
+    
+    var delegate: LoginViewControllerDelegate?
 
     // MARK: - Life cycle
     
@@ -153,7 +165,28 @@ class LogInViewController: UIViewController {
 
     // MARK: - Actions
     
-    @objc private func performLogin(_ sender: Any) {
+    @objc private func loginButtonTapped(_ sender: Any) {
+        guard let delegate = delegate else { return }
+        if(delegate.loginControllerShouldAllowLogin(self)) {
+            performLogin()
+        }
+    }
+    
+    @objc private func loginFieldDidFinishEditing(_ sender: UITextField) {
+        if let login = sender.text {
+            delegate?.loginController(self, didSubmitLogin: login)
+        }
+    }
+    
+    @objc private func passwordFieldDidFinishEditing(_ sender: UITextField) {
+        if let password = sender.text {
+            delegate?.loginController(self, didSubmitPassword: password)
+        }
+    }
+    
+    // MARK: - Private methods
+    
+    private func performLogin() {
         guard let navigationController = self.navigationController,
               let storyboard = self.storyboard,
               let profileViewController = storyboard.instantiateViewController(identifier: String(describing: ProfileViewController.self)) as? ProfileViewController else {
@@ -161,8 +194,6 @@ class LogInViewController: UIViewController {
         }
         navigationController.pushViewController(profileViewController, animated: true)
     }
-    
-    // MARK: - Private methods
     
     private func setupUI() {
         
