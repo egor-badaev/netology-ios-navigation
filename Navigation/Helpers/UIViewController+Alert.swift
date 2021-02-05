@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIViewController {
-    func presentErrorAlert(withMessage message: String) {
-        self.present(ErrorAlertFactory.errorAlert(message: message), animated: true, completion: nil)
+    func presentErrorAlert(_ message: String) {
+        self.present(AlertFactory.makeErrorAlert(message), animated: true, completion: nil)
     }
 }

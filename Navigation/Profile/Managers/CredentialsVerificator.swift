@@ -51,17 +51,17 @@ class CredentialsVerificator: LoginViewControllerDelegate {
     func loginControllerShouldAllowLogin(_ loginController: LogInViewController) -> Bool {
         guard let login = self.login,
               !login.isEmpty else {
-            loginController.presentErrorAlert(withMessage: "Логин не может быть пустым")
+            loginController.presentErrorAlert("Логин не может быть пустым")
             return false
         }
         guard let password = self.password,
               !password.isEmpty else {
-            loginController.presentErrorAlert(withMessage: "Пароль не может быть пустым")
+            loginController.presentErrorAlert("Пароль не может быть пустым")
             return false
         }
 
         if (!CredentialsStore.shared.credentialsAreCorrect(withLogin: login, andPassword: password)) {
-            loginController.presentErrorAlert(withMessage: "Указанная комбинация логина и пароля не найдена")
+            loginController.presentErrorAlert("Указанная комбинация логина и пароля не найдена")
             return false
         }
         

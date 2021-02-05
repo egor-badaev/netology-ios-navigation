@@ -60,7 +60,7 @@ class LogInViewController: UIViewController {
         emailTextField.setupCommonProperties()
         emailTextField.placeholder = "Email or phone"
                 
-        emailTextField.addTarget(self, action: #selector(loginFieldDidFinishEditing(_:)), for: .editingChanged)
+        emailTextField.addTarget(self, action: #selector(loginFieldDidChangeEditing(_:)), for: .editingChanged)
         
         return emailTextField
     }()
@@ -72,7 +72,7 @@ class LogInViewController: UIViewController {
         passwordTextField.placeholder = "Password"
         passwordTextField.isSecureTextEntry = true
         
-        passwordTextField.addTarget(self, action: #selector(passwordFieldDidFinishEditing(_:)), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(passwordFieldDidChangeEditing(_:)), for: .editingChanged)
         
         return passwordTextField
     }()
@@ -172,13 +172,13 @@ class LogInViewController: UIViewController {
         }
     }
     
-    @objc private func loginFieldDidFinishEditing(_ sender: UITextField) {
+    @objc private func loginFieldDidChangeEditing(_ sender: UITextField) {
         if let login = sender.text {
             delegate?.loginController(self, didSubmitLogin: login)
         }
     }
     
-    @objc private func passwordFieldDidFinishEditing(_ sender: UITextField) {
+    @objc private func passwordFieldDidChangeEditing(_ sender: UITextField) {
         if let password = sender.text {
             delegate?.loginController(self, didSubmitPassword: password)
         }

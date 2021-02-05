@@ -8,12 +8,7 @@
 
 import Foundation
 
-enum CredentialsType {
-    case login
-    case password
-}
-
-class CredentialsStore {
+struct CredentialsStore {
     
     private let login: String = "some@test.ru"
     private let password: String = "somepass"
