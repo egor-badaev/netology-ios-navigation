@@ -15,15 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        setupWindow()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let mainCoordinator = MainCoordinator(rootWindow: window)
+        mainCoordinator.start()
         
         return true
-    }
-
-    private func setupWindow() {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = RootTabBarController()
-        window?.makeKeyAndVisible()
     }
 
 }
