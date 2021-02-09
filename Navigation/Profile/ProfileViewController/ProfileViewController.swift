@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    var coordinator: ProfileCoordinator?
+    
     //MARK: - Subviews
     
     private lazy var postsTableView: UITableView = {
@@ -244,6 +246,6 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.section == 0 && indexPath.row == 0 else { return }
         tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(PhotosViewController(), animated: true)
+        coordinator?.showPhotos()
     }
 }

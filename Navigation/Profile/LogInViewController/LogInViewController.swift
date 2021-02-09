@@ -21,6 +21,7 @@ class LogInViewController: UIViewController {
     
     // MARK: - Properties
     
+    var coordinator: ProfileCoordinator?
     private let scrollView: UIScrollView = {
        let scrollView = UIScrollView()
         
@@ -155,13 +156,7 @@ class LogInViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func performLogin(_ sender: Any) {
-        guard let navigationController = self.navigationController else {
-            return
-        }
-        
-        let profileViewController = ProfileViewController()
-        
-        navigationController.pushViewController(profileViewController, animated: true)
+        coordinator?.login()
     }
     
     // MARK: - Private methods

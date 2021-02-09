@@ -39,6 +39,7 @@ final class MainCoordinator {
         let loginViewController = LogInViewController()
         let profileNavigationController = UINavigationController(rootViewController: loginViewController)
         let profileCoordinator = ProfileCoordinator(navigationController: profileNavigationController)
+        loginViewController.coordinator = profileCoordinator
         childCoordinators.append(profileCoordinator)
     }
     
