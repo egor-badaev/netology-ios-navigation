@@ -9,24 +9,8 @@
 import UIKit
 
 final class FeedViewController: UIViewController {
-
-    // MARK: - properties
     
-    private let posts: [PostDummy] = {
-        var posts: [PostDummy] = []
-
-        /**
-         По условиям задачи добавить нужно всего две кнопки, но текущая модель
-         позволяет добавлять сколько угодно кнопок (пока не закончится экран)
-
-         Для этого нужно добавлять эелементы в массив `posts` - для каждого
-         из них создастся кнопка с переходом на соответствующий пост
-         */
-        posts.append(PostDummy(title: "Пост 1"))
-        posts.append(PostDummy(title: "Пост 2"))
-
-        return posts
-    }()
+    var coordinator: FeedCoordinator?
 
     // MARK: - Lifecycle
 
@@ -45,42 +29,17 @@ final class FeedViewController: UIViewController {
         stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 
-        for (index, _) in posts.enumerated() {
-            let postButton = buttonForPost(index: index)
+        for (index, _) in FeedModel.shared.posts.enumerated() {
+            let postButton = PostButtonFactory.makeButtonForPost(index: index)
+            postButton.addTarget(self, action: #selector(postButtonTapped(_:)), for: .touchUpInside)
             stackView.addArrangedSubview(postButton)
         }
     }
 
     // MARK: - Private methods
 
-    private func buttonForPost(index: Int) -> PostButton {
-        let button = PostButton(type: .system)
-
-        button.setTitle("Show post \(index + 1)", for: .normal)
-        button.sizeToFit()
-        button.addTarget(self, action: #selector(buttonTapped(sender:)), for: .touchUpInside)
-
-        button.index = index
-
-        return button
-    }
-
-    @objc private func buttonTapped(sender: Any) {
-
-        guard let navigationController = self.navigationController else {
-            return
-        }
-
-        let postViewController = PostViewController()
-
-        guard let postButton = sender as? PostButton,
-              let index = postButton.index,
-              posts.indices.contains(index) else {
-            return
-        }
-
-        postViewController.post = posts[index]
-
-        navigationController.pushViewController(postViewController, animated: true)
+    @objc private func postButtonTapped(_ sender: PostButton) {
+        guard let index = sender.index else { return }
+        coordinator?.showPost(number: index)
     }
 }

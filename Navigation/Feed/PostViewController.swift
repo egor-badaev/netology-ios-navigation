@@ -10,11 +10,10 @@ import UIKit
 
 class PostViewController: UIViewController {
     
-    var post: PostDummy?
+    var coordinator: FeedCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = post?.title
         
         setupUI()
     }
@@ -26,8 +25,6 @@ class PostViewController: UIViewController {
     }
     
     @objc func addButtonTapped(_ sender: Any) {
-
-        let infoViewController = InfoViewController()
-        navigationController?.present(infoViewController, animated: true, completion: nil)
+        coordinator?.showPostInfo()
     }
 }

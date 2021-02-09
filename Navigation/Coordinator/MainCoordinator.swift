@@ -30,6 +30,8 @@ final class MainCoordinator {
         let feedViewController = FeedViewController()
         let feedNavigationController = UINavigationController(rootViewController: feedViewController)
         let feedCoordinator = FeedCoordinator(navigationController: feedNavigationController)
+        feedViewController.coordinator = feedCoordinator
+        feedViewController.title = AppConstants.feedViewControllerTitle
         childCoordinators.append(feedCoordinator)
     }
     
@@ -41,11 +43,11 @@ final class MainCoordinator {
     }
     
     private func setupTabBarController() {
-        var viewControllers: [UIViewController] = []
+        var tabBarViewControllers: [UIViewController] = []
         childCoordinators.forEach {
             $0.start()
-            viewControllers.append($0.navigationController)
+            tabBarViewControllers.append($0.navigationController)
         }
-        tabBarController.viewControllers = viewControllers
+        tabBarController.viewControllers = tabBarViewControllers
     }
 }

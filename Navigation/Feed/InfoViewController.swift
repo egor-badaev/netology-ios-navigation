@@ -12,6 +12,8 @@ class InfoViewController: UIViewController {
 
     // MARK: - Properties
     
+    var coordinator: FeedCoordinator?
+    
     private lazy var alertButton: UIButton = {
         let alertButton = UIButton(type: .system)
         
@@ -48,15 +50,6 @@ class InfoViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func showAlert(_ sender: Any) {
-        let alertController = UIAlertController(title: "Удалить пост?", message: "Пост нельзя будет восстановить", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Отмена", style: .default) { _ in
-            print("Отмена")
-        }
-        let deleteAction = UIAlertAction(title: "Удалить", style: .destructive) { _ in
-            print("Удалить")
-        }
-        alertController.addAction(cancelAction)
-        alertController.addAction(deleteAction)
-        self.present(alertController, animated: true, completion: nil)
+        coordinator?.showDeletePostAlert(presentedOn: self)
     }
 }
