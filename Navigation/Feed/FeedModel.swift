@@ -18,9 +18,10 @@ struct FeedModel {
     let posts: [PostDummy]
 
     private init() {
-        posts = [
-            PostDummy(title: "Пост 1"),
-            PostDummy(title: "Пост 2")
-        ]
+        var posts = [PostDummy]()
+        for index in 0...Int.random(in: 1...9) {
+            posts.append(PostDummy(title: "Пост \(index + 1)"))
+        }
+        self.posts = posts
     }
 }
