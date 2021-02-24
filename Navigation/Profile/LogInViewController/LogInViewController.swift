@@ -123,7 +123,7 @@ class LogInViewController: UIViewController {
         return loginButton
     }()
     
-    var delegate: LoginViewControllerDelegate?
+    weak var delegate: LoginViewControllerDelegate?
 
     // MARK: - Life cycle
     

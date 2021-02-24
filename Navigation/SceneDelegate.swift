@@ -11,6 +11,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var credentialsVerificator: CredentialsVerificator?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -24,7 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let tabController = window?.rootViewController as? UITabBarController,
            let loginNavigation = tabController.viewControllers?.last as? UINavigationController,
            let loginController = loginNavigation.viewControllers.first as? LogInViewController {
-            loginController.delegate = CredentialsVerificator()
+            credentialsVerificator = CredentialsVerificator()
+            loginController.delegate = credentialsVerificator
         }
     }
 
