@@ -27,7 +27,8 @@ final class MainCoordinator {
     }
     
     private func setupFeedCoordinator() {
-        let feedViewController = FeedViewController()
+        let feedViewModel = FeedViewModel()
+        let feedViewController = FeedViewController(viewModel: feedViewModel)
         let feedNavigationController = UINavigationController(rootViewController: feedViewController)
         let feedCoordinator = FeedCoordinator(navigationController: feedNavigationController)
         feedViewController.coordinator = feedCoordinator
