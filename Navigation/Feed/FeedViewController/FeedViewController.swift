@@ -22,11 +22,6 @@ final class FeedViewController: UIViewController {
         super.init(coder: coder)
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        output = PostViewPresenter()
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)        
-    }
-
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
