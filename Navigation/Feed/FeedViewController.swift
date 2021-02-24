@@ -10,7 +10,7 @@ import UIKit
 
 final class FeedViewController: UIViewController {
     
-    var coordinator: FeedCoordinator?
+    weak var coordinator: FeedCoordinator?
 
     // MARK: - Lifecycle
 

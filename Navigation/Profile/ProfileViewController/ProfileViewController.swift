@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    var coordinator: ProfileCoordinator?
+    weak var coordinator: ProfileCoordinator?
     
     //MARK: - Subviews
     

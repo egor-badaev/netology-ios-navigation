@@ -21,7 +21,7 @@ class LogInViewController: UIViewController {
     
     // MARK: - Properties
     
-    var coordinator: ProfileCoordinator?
+    weak var coordinator: ProfileCoordinator?
     private let scrollView: UIScrollView = {
        let scrollView = UIScrollView()
         

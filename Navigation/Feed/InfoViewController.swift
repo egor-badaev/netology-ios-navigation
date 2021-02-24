@@ -12,7 +12,7 @@ class InfoViewController: UIViewController {
 
     // MARK: - Properties
     
-    var coordinator: FeedCoordinator?
+    weak var coordinator: FeedCoordinator?
     
     private lazy var alertButton: UIButton = {
         let alertButton = UIButton(type: .system)
