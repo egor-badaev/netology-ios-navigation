@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class PhotosTableViewCell: UITableViewCell {
     
@@ -50,12 +51,19 @@ class PhotosTableViewCell: UITableViewCell {
         stackView.axis = .horizontal
         stackView.spacing = Config.spacing
         
+        let imageProcessor = ImageProcessor()
+        
         for i in 0...3 {
 
             let imageView = UIImageView()
 
             imageView.contentMode = .scaleAspectFill
-            imageView.image = UIImage(named: PhotoGalleryData.imageNames[i])
+            
+            if let image = UIImage(named: PhotoGalleryData.imageNames[i]) {
+                imageProcessor.processImage(sourceImage: image, filter: .monochrome(color: CIColor(red: 0.75, green: 0.75, blue: 0.75), intensity: 1.0)) { (image) in
+                    imageView.image = image
+                }
+            }
 
             imageView.layer.masksToBounds = true
             imageView.layer.cornerRadius = Config.cornerRadius

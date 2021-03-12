@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,7 @@
 		742C785F255461C500B352FF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C785E255461C500B352FF /* ProfileViewController.swift */; };
 		742C7869255496BD00B352FF /* StatusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C7868255496BD00B352FF /* StatusTextField.swift */; };
 		743F39E725573DD500F77FE2 /* PostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743F39E625573DD500F77FE2 /* PostButton.swift */; };
+		746F84F725C89E6D005C3026 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 746F84F625C89E6D005C3026 /* iOSIntPackage */; };
 		74756D5F2563C319001D5099 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74756D5E2563C319001D5099 /* LogInViewController.swift */; };
 		74756D632563D208001D5099 /* UIView+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74756D622563D208001D5099 /* UIView+Navigation.swift */; };
 		74756D6A2563DB87001D5099 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74756D692563DB87001D5099 /* AppConstants.swift */; };
@@ -67,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				746F84F725C89E6D005C3026 /* iOSIntPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +145,6 @@
 			children = (
 				742C785E255461C500B352FF /* ProfileViewController.swift */,
 				742C785A2554618200B352FF /* ProfileHeaderView.swift */,
-				74D8F2DB256476D60060DA0B /* ProfileHeaderView.xib */,
 				742C7868255496BD00B352FF /* StatusTextField.swift */,
 				74972E002566DBD200B29277 /* PhotosTableViewCell.swift */,
 				74972DF925651F2900B29277 /* PostTableViewCell.swift */,
@@ -194,6 +195,9 @@
 			dependencies = (
 			);
 			name = Navigation;
+			packageProductDependencies = (
+				746F84F625C89E6D005C3026 /* iOSIntPackage */,
+			);
 			productName = Navigation;
 			productReference = 060782AE250CE27700A87020 /* Navigation.app */;
 			productType = "com.apple.product-type.application";
@@ -222,6 +226,9 @@
 				Base,
 			);
 			mainGroup = 060782A5250CE27700A87020;
+			packageReferences = (
+				746F84F525C89E6D005C3026 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+			);
 			productRefGroup = 060782AF250CE27700A87020 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -469,6 +476,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		746F84F525C89E6D005C3026 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TrueMax/iOSIntPackage/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		746F84F625C89E6D005C3026 /* iOSIntPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 746F84F525C89E6D005C3026 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
+			productName = iOSIntPackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 060782A6250CE27700A87020 /* Project object */;
 }

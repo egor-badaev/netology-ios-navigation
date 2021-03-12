@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class PostTableViewCell: UITableViewCell {
     
@@ -106,7 +107,11 @@ class PostTableViewCell: UITableViewCell {
     
     func configure(with post: Post) {
         authorLabel.text = post.author
-        postImageView.image = UIImage(named: post.image)
+        if let image = UIImage(named: post.image)  {
+            ImageProcessor().processImage(sourceImage: image, filter: .sepia(intensity: 0.5)) { (image) in
+                postImageView.image = image
+            }
+        }
         descriptionLabel.text = post.description
         likesLabel.text = "Likes: \(post.likes)"
         viewsLabel.text = "Views: \(post.views)"
