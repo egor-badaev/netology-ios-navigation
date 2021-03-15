@@ -2,8 +2,8 @@
 //  FeedModel.swift
 //  Navigation
 //
-//  Created by Egor Badaev on 05.02.2021.
-//  Copyright © 2021 Artem Novichkov. All rights reserved.
+//  Created by Egor Badaev on 09.02.2021.
+//  Copyright © 2021 Egor Badaev. All rights reserved.
 //
 
 import Foundation
@@ -18,9 +18,10 @@ struct FeedModel {
     let posts: [PostDummy]
 
     private init() {
-        posts = [
-            PostDummy(title: "Пост 1"),
-            PostDummy(title: "Пост 2")
-        ]
+        var posts = [PostDummy]()
+        for index in 0...Int.random(in: 1...9) {
+            posts.append(PostDummy(title: "Пост \(index + 1)"))
+        }
+        self.posts = posts
     }
 }

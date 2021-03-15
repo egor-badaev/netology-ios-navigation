@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    weak var coordinator: ProfileCoordinator?
+    
     //MARK: - Subviews
     
     private lazy var postsTableView: UITableView = {
@@ -101,6 +103,14 @@ class ProfileViewController: UIViewController {
     // MARK: - Private methods
 
     private func setupUI() {
+        
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .systemBackground
+        } else {
+            // Fallback on earlier versions
+            view.backgroundColor = .white
+        }
+        
         view.addSubview(postsTableView)
         
         let constraints = [
@@ -236,6 +246,6 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.section == 0 && indexPath.row == 0 else { return }
         tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(PhotosViewController(), animated: true)
+        coordinator?.showPhotos()
     }
 }

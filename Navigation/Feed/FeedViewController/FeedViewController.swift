@@ -8,26 +8,16 @@
 
 import UIKit
 
-protocol FeedViewOutput {
-    var navigationController: UINavigationController? { get set }
-    func showPost(number index: Int)
-}
-
 final class FeedViewController: UIViewController {
     
-    var output: FeedViewOutput
-    
-    required init?(coder: NSCoder) {
-        output = PostViewPresenter()
-        super.init(coder: coder)
-    }
+    weak var coordinator: FeedCoordinator?
     
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        output.navigationController = self.navigationController
+        view.backgroundColor = .systemGreen
 
         let stackView = PostWrapperView()
         stackView.toAutoLayout()
@@ -37,7 +27,7 @@ final class FeedViewController: UIViewController {
         stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         stackView.onButtonTap = { index in
-            self.output.showPost(number: index)
+            self.coordinator?.showPost(number: index)
         }
     }
 }

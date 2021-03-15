@@ -27,6 +27,9 @@ class LogInViewController: UIViewController {
     
     // MARK: - Properties
     
+    weak var coordinator: ProfileCoordinator?
+    weak var delegate: LoginViewControllerDelegate?
+
     private let scrollView: UIScrollView = {
        let scrollView = UIScrollView()
         
@@ -123,8 +126,6 @@ class LogInViewController: UIViewController {
         return loginButton
     }()
     
-    weak var delegate: LoginViewControllerDelegate?
-
     // MARK: - Life cycle
     
     override func viewDidLoad() {
@@ -153,8 +154,9 @@ class LogInViewController: UIViewController {
     @objc private func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             
-            scrollView.contentInset.bottom = keyboardSize.height
-            scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+            let insetAdjustment = keyboardSize.height - view.safeAreaInsets.bottom + AppConstants.margin
+            scrollView.contentInset.bottom = insetAdjustment
+            scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: insetAdjustment, right: 0)
         }
     }
     
@@ -168,7 +170,7 @@ class LogInViewController: UIViewController {
     @objc private func loginButtonTapped(_ sender: Any) {
         guard let delegate = delegate else { return }
         if(delegate.loginControllerShouldAllowLogin(self)) {
-            performLogin()
+            coordinator?.login()
         }
     }
     
@@ -186,18 +188,16 @@ class LogInViewController: UIViewController {
     
     // MARK: - Private methods
     
-    private func performLogin() {
-        guard let navigationController = self.navigationController,
-              let storyboard = self.storyboard,
-              let profileViewController = storyboard.instantiateViewController(identifier: String(describing: ProfileViewController.self)) as? ProfileViewController else {
-            return
-        }
-        navigationController.pushViewController(profileViewController, animated: true)
-    }
-    
     private func setupUI() {
         
         navigationController?.navigationBar.isHidden = true
+        
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .systemBackground
+        } else {
+            // Fallback on earlier versions
+            view.backgroundColor = .white
+        }
         
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
@@ -244,7 +244,12 @@ class LogInViewController: UIViewController {
 extension UITextField {
     func setupCommonProperties() {
         self.toAutoLayout()
-        self.backgroundColor = UIColor.systemGray6
+        if #available(iOS 13.0, *) {
+            self.backgroundColor = UIColor.systemGray6
+        } else {
+            // Fallback on earlier versions
+            self.backgroundColor = UIColor(red: 242.0 / 255.0, green: 242.0 / 255.0, blue: 247.0 / 255.0, alpha: 1.0)
+        }
         self.textColor = .black
         self.tintColor = UIColor(named: AppConstants.accentColor)
         self.autocapitalizationType = .none
