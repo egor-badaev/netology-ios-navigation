@@ -17,6 +17,7 @@ final class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = AppConstants.feedViewControllerTitle
         view.backgroundColor = .systemGreen
 
         let stackView = PostWrapperView()

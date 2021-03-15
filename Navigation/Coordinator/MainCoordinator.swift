@@ -32,7 +32,6 @@ final class MainCoordinator {
         let feedNavigationController = UINavigationController(rootViewController: feedViewController)
         let feedCoordinator = FeedCoordinator(navigationController: feedNavigationController)
         feedViewController.coordinator = feedCoordinator
-        feedViewController.title = AppConstants.feedViewControllerTitle
         childCoordinators.append(feedCoordinator)
     }
     
