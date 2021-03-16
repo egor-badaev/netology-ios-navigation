@@ -14,6 +14,16 @@
 		060782C6250CEB0A00A87020 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060782C5250CEB0A00A87020 /* InfoViewController.swift */; };
 		060782C8250CEE5D00A87020 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060782C7250CEE5D00A87020 /* PostViewController.swift */; };
 		060782CA250CEE7200A87020 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060782C9250CEE7200A87020 /* Post.swift */; };
+		741124E72601392C00837B3C /* LedZeppelin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 741124DC2601392C00837B3C /* LedZeppelin.mp3 */; };
+		741124E82601392C00837B3C /* CreedenceClearwaterRevival.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 741124DD2601392C00837B3C /* CreedenceClearwaterRevival.mp3 */; };
+		741124E92601392C00837B3C /* ACDC.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 741124DE2601392C00837B3C /* ACDC.m4a */; };
+		741124EA2601392C00837B3C /* Survivor.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 741124DF2601392C00837B3C /* Survivor.mp3 */; };
+		741124EB2601392C00837B3C /* Queen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 741124E02601392C00837B3C /* Queen.mp3 */; };
+		741124EC2601392C00837B3C /* BillyIdol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 741124E12601392C00837B3C /* BillyIdol.mp3 */; };
+		741124ED2601392C00837B3C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741124E22601392C00837B3C /* PlayerViewController.swift */; };
+		741124EE2601392C00837B3C /* AVControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741124E32601392C00837B3C /* AVControlButton.swift */; };
+		741124EF2601392C00837B3C /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741124E52601392C00837B3C /* AudioTrack.swift */; };
+		741124F02601392C00837B3C /* PlaylistProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741124E62601392C00837B3C /* PlaylistProvider.swift */; };
 		741565DF2567C35B00D21A38 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741565DE2567C35B00D21A38 /* PhotosCollectionViewCell.swift */; };
 		741ED10225FFFB8B00306193 /* PostDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741ED10125FFFB8B00306193 /* PostDummy.swift */; };
 		741EDFBB25670C5D00A13F46 /* PhotoGalleryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EDFBA25670C5D00A13F46 /* PhotoGalleryData.swift */; };
@@ -53,6 +63,16 @@
 		060782C5250CEB0A00A87020 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		060782C7250CEE5D00A87020 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		060782C9250CEE7200A87020 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		741124DC2601392C00837B3C /* LedZeppelin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LedZeppelin.mp3; sourceTree = "<group>"; };
+		741124DD2601392C00837B3C /* CreedenceClearwaterRevival.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CreedenceClearwaterRevival.mp3; sourceTree = "<group>"; };
+		741124DE2601392C00837B3C /* ACDC.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ACDC.m4a; sourceTree = "<group>"; };
+		741124DF2601392C00837B3C /* Survivor.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Survivor.mp3; sourceTree = "<group>"; };
+		741124E02601392C00837B3C /* Queen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Queen.mp3; sourceTree = "<group>"; };
+		741124E12601392C00837B3C /* BillyIdol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BillyIdol.mp3; sourceTree = "<group>"; };
+		741124E22601392C00837B3C /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		741124E32601392C00837B3C /* AVControlButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVControlButton.swift; sourceTree = "<group>"; };
+		741124E52601392C00837B3C /* AudioTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
+		741124E62601392C00837B3C /* PlaylistProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistProvider.swift; sourceTree = "<group>"; };
 		741565DE2567C35B00D21A38 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		741ED10125FFFB8B00306193 /* PostDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDummy.swift; sourceTree = "<group>"; };
 		741EDFBA25670C5D00A13F46 /* PhotoGalleryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryData.swift; sourceTree = "<group>"; };
@@ -115,6 +135,7 @@
 				74EAF6A125D1C37400F41122 /* Coordinator */,
 				743F39E325573D8600F77FE2 /* Feed */,
 				742C78592554614F00B352FF /* Profile */,
+				741124DA2601392C00837B3C /* Player */,
 				060782B1250CE27700A87020 /* AppDelegate.swift */,
 				74756D72256402D4001D5099 /* Helpers */,
 				060782BA250CE27A00A87020 /* Assets.xcassets */,
@@ -122,6 +143,39 @@
 				060782BF250CE27A00A87020 /* Info.plist */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		741124DA2601392C00837B3C /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				741124DB2601392C00837B3C /* Music */,
+				741124E22601392C00837B3C /* PlayerViewController.swift */,
+				741124E32601392C00837B3C /* AVControlButton.swift */,
+				741124E42601392C00837B3C /* Model */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		741124DB2601392C00837B3C /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				741124DC2601392C00837B3C /* LedZeppelin.mp3 */,
+				741124DD2601392C00837B3C /* CreedenceClearwaterRevival.mp3 */,
+				741124DE2601392C00837B3C /* ACDC.m4a */,
+				741124DF2601392C00837B3C /* Survivor.mp3 */,
+				741124E02601392C00837B3C /* Queen.mp3 */,
+				741124E12601392C00837B3C /* BillyIdol.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		741124E42601392C00837B3C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				741124E52601392C00837B3C /* AudioTrack.swift */,
+				741124E62601392C00837B3C /* PlaylistProvider.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		742C78592554614F00B352FF /* Profile */ = {
@@ -310,8 +364,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				741124EA2601392C00837B3C /* Survivor.mp3 in Resources */,
 				060782BE250CE27A00A87020 /* LaunchScreen.storyboard in Resources */,
+				741124E82601392C00837B3C /* CreedenceClearwaterRevival.mp3 in Resources */,
+				741124E72601392C00837B3C /* LedZeppelin.mp3 in Resources */,
 				060782BB250CE27A00A87020 /* Assets.xcassets in Resources */,
+				741124E92601392C00837B3C /* ACDC.m4a in Resources */,
+				741124EB2601392C00837B3C /* Queen.mp3 in Resources */,
+				741124EC2601392C00837B3C /* BillyIdol.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,10 +392,13 @@
 				74EDA72D25CC70A300B9EE42 /* UIViewController+Alert.swift in Sources */,
 				74A7A16625CDB4DA005D12DE /* PostWrapperView.swift in Sources */,
 				74EAF6A325D1C38700F41122 /* Coordinator.swift in Sources */,
+				741124F02601392C00837B3C /* PlaylistProvider.swift in Sources */,
+				741124EE2601392C00837B3C /* AVControlButton.swift in Sources */,
 				74756D5F2563C319001D5099 /* LogInViewController.swift in Sources */,
 				74EAF6A625D1C42900F41122 /* MainCoordinator.swift in Sources */,
 				060782B2250CE27700A87020 /* AppDelegate.swift in Sources */,
 				74756D702563E992001D5099 /* UIImage+Navigation.swift in Sources */,
+				741124ED2601392C00837B3C /* PlayerViewController.swift in Sources */,
 				74A7A17025CDC7A1005D12DE /* FeedModel.swift in Sources */,
 				741565DF2567C35B00D21A38 /* PhotosCollectionViewCell.swift in Sources */,
 				746F851D25C9D8CE005C3026 /* CredentialsStore.swift in Sources */,
@@ -344,6 +407,7 @@
 				746F852625C9E698005C3026 /* AlertFactory.swift in Sources */,
 				060782C6250CEB0A00A87020 /* InfoViewController.swift in Sources */,
 				060782CA250CEE7200A87020 /* Post.swift in Sources */,
+				741124EF2601392C00837B3C /* AudioTrack.swift in Sources */,
 				74EAF6AA25D1C5D000F41122 /* ProfileCoordinator.swift in Sources */,
 				742C785B2554618200B352FF /* ProfileHeaderView.swift in Sources */,
 				741EDFBB25670C5D00A13F46 /* PhotoGalleryData.swift in Sources */,

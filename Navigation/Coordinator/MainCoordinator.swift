@@ -51,6 +51,14 @@ final class MainCoordinator {
             $0.start()
             tabBarViewControllers.append($0.navigationController)
         }
+        
+        let playerViewController = PlayerViewController()
+        let playerTabBarItem = UITabBarItem(title: "Player", image: UIImage(named: "Music"), selectedImage: nil)
+        playerViewController.tabBarItem = playerTabBarItem
+        
+        tabBarViewControllers.append(playerViewController)
+        
         tabBarController.viewControllers = tabBarViewControllers
     }
+    
 }
