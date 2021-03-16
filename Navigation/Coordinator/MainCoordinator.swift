@@ -58,6 +58,12 @@ final class MainCoordinator {
         
         tabBarViewControllers.append(playerViewController)
         
+        let videoViewController = VideoPlayerViewController()
+        let videoTabBarItem = UITabBarItem(title: "Video", image: UIImage(named: "YouTube"), selectedImage: nil)
+        videoViewController.tabBarItem = videoTabBarItem
+        tabBarViewControllers.append(videoViewController)
+        
+        
         tabBarController.viewControllers = tabBarViewControllers
     }
     
