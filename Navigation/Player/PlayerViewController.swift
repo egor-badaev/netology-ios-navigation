@@ -6,18 +6,16 @@
 //
 
 import UIKit
-import AVFoundation
 
 class PlayerViewController: UIViewController {
     
-    private enum TrackSwitchDirection {
-        case previous
-        case next
-    }
-
     // MARK: - Properties
     
-    private var player = AVAudioPlayer()
+    private lazy var playerManager: PlayerManager = {
+        let manager = PlayerManager.shared
+        manager.delegate = self
+        return manager
+    }()
     
     private lazy var playButton = AVControlButton(imageName: "play.fill", controller: self, selector: #selector(startPlaying))
     
@@ -72,19 +70,6 @@ class PlayerViewController: UIViewController {
         return artistLabel
     }()
     
-    private let playlist = PlaylistProvider.playlist
-    private var currentTrackIndex: Int = 0 {
-        didSet {
-            guard playlist.indices.contains(currentTrackIndex) else {
-                return
-            }
-            let track = playlist[currentTrackIndex]
-            trackLabel.text = track.title
-            artistLabel.text = track.artist
-            
-        }
-    }
-    
     //MARK: - Life cycle
 
     override func viewDidLoad() {
@@ -92,72 +77,32 @@ class PlayerViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         setupUI()
-        
-        currentTrackIndex = 0
-        loadTrack(number: currentTrackIndex)
-        
+        playerManager.setup()
     }
     
     //MARK: - Actions
 
     @objc private func startPlaying() {
-        playTrack()
+        playerManager.startPlayback()
     }
     
     @objc private func stopPlaying() {
-        if player.isPlaying {
-            togglePlayPause()
-        }
-        player.stop()
-        player.currentTime = 0.0
+        playerManager.stopPlayback()
     }
     
     @objc private func pausePlaying() {
-        guard player.isPlaying else {
-            return
-        }
-        
-        player.pause()
-        togglePlayPause()
+        playerManager.pausePlayback()
     }
     
     @objc private func prevTrack() {
-        switchTrack(.previous)
+        playerManager.switchTrack(.previous)
     }
     
     @objc private func nextTrack() {
-        switchTrack(.next)
+        playerManager.switchTrack(.next)
     }
     
     // MARK: - Private methods
-    
-    private func playTrack(togglingButtonState shouldToggleButtonState: Bool = true) {
-        guard !player.isPlaying else {
-            return
-        }
-        
-        player.play()
-        if shouldToggleButtonState {
-            togglePlayPause()
-        }
-    }
-    
-    private func switchTrack(_ direction: TrackSwitchDirection, looping: Bool = true, toggling: Bool = true) {
-        var shouldPlay = true
-        stopPlaying()
-        currentTrackIndex = direction == .next ? currentTrackIndex + 1 : currentTrackIndex - 1
-        if !playlist.indices.contains(currentTrackIndex) {
-            if !looping {
-                shouldPlay = false
-            }
-            currentTrackIndex = (direction == .next ? playlist.indices.first : playlist.indices.last) ?? 0
-        }
-        loadTrack(number: currentTrackIndex)
-        
-        if shouldPlay {
-            playTrack(togglingButtonState: toggling)
-        }
-    }
     
     private func setupUI() {
         if #available(iOS 13.0, *) {
@@ -187,33 +132,18 @@ class PlayerViewController: UIViewController {
 
     }
     
-    private func togglePlayPause() {
-        playButton.isHidden.toggle()
-        pauseButton.isHidden.toggle()
-    }
-    
-    private func loadTrack(number index: Int) {
-        guard playlist.indices.contains(index) else {
-            return
-        }
-        
-        let audioTrack = playlist[index]
-        
-        do {
-            player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: audioTrack.filename, ofType: audioTrack.filetype.rawValue)!))
-            player.delegate = self
-            player.prepareToPlay()
-        }
-        catch {
-            print(error)
-        }
-    }
-    
 }
 
-//MARK: - AVAudioPlayerDelegate
-extension PlayerViewController: AVAudioPlayerDelegate {
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        switchTrack(.next, looping: false, toggling: false)
+// MARK: - PlayerManagerDelegate
+    
+extension PlayerViewController: PlayerManagerDelegate {
+    func setTrack(_ track: AudioTrack) {
+        trackLabel.text = track.title
+        artistLabel.text = track.artist
+    }
+    
+    func togglePlayPause() {
+        playButton.isHidden.toggle()
+        pauseButton.isHidden.toggle()
     }
 }
