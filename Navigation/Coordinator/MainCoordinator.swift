@@ -63,6 +63,10 @@ final class MainCoordinator {
         videoViewController.tabBarItem = videoTabBarItem
         tabBarViewControllers.append(videoViewController)
         
+        let recorderViewController = RecorderViewController()
+        let recorderTabBarItem = UITabBarItem(title: "Recorder", image: UIImage(named: "Microphone"), selectedImage: nil)
+        recorderViewController.tabBarItem = recorderTabBarItem
+        tabBarViewControllers.append(recorderViewController)
         
         tabBarController.viewControllers = tabBarViewControllers
     }

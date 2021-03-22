@@ -55,6 +55,7 @@
 		74EAF6AF25D1D50400F41122 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EAF6AE25D1D50400F41122 /* FeedCoordinator.swift */; };
 		74EDA72D25CC70A300B9EE42 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EDA72C25CC70A300B9EE42 /* UIViewController+Alert.swift */; };
 		74F189762601574A00D66AA6 /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F189752601574A00D66AA6 /* PlayerManager.swift */; };
+		74FCEB10260914990095AFD7 /* RecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FCEB0F260914990095AFD7 /* RecorderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 		74EAF6AE25D1D50400F41122 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		74EDA72C25CC70A300B9EE42 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		74F189752601574A00D66AA6 /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
+		74FCEB0F260914990095AFD7 /* RecorderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				742C78592554614F00B352FF /* Profile */,
 				741124DA2601392C00837B3C /* Player */,
 				74B2B4C72601529900C0293A /* VideoPlayer */,
+				74FCEB0E2609145D0095AFD7 /* Recorder */,
 				060782B1250CE27700A87020 /* AppDelegate.swift */,
 				74756D72256402D4001D5099 /* Helpers */,
 				060782BA250CE27A00A87020 /* Assets.xcassets */,
@@ -328,6 +331,14 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		74FCEB0E2609145D0095AFD7 /* Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				74FCEB0F260914990095AFD7 /* RecorderViewController.swift */,
+			);
+			path = Recorder;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -438,6 +449,7 @@
 				746F852625C9E698005C3026 /* AlertFactory.swift in Sources */,
 				060782C6250CEB0A00A87020 /* InfoViewController.swift in Sources */,
 				060782CA250CEE7200A87020 /* Post.swift in Sources */,
+				74FCEB10260914990095AFD7 /* RecorderViewController.swift in Sources */,
 				741124EF2601392C00837B3C /* AudioTrack.swift in Sources */,
 				74EAF6AA25D1C5D000F41122 /* ProfileCoordinator.swift in Sources */,
 				742C785B2554618200B352FF /* ProfileHeaderView.swift in Sources */,
