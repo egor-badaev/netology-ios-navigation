@@ -12,7 +12,7 @@ class PlayerViewController: UIViewController {
     // MARK: - Properties
     
     private lazy var playerManager: PlayerManager = {
-        let manager = PlayerManager.shared
+        let manager = PlayerManager()
         manager.delegate = self
         return manager
     }()

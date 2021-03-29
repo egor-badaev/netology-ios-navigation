@@ -21,11 +21,6 @@ class PlayerManager: NSObject {
         case next
     }
 
-    static let shared: PlayerManager = {
-        let instance = PlayerManager()
-        return instance
-    }()
-    
     weak var delegate: PlayerManagerDelegate?
 
     private lazy var player: AVAudioPlayer = {
